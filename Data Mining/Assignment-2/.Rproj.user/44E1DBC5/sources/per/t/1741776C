@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1509612681968.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "7|24|26|0|\n",
+    "hash" : "729627464",
+    "id" : "1741776C",
+    "lastKnownWriteTime" : 1509486737,
+    "last_content_update" : 1509612687180,
+    "path" : "~/My files/Data Mining/R/Assignment-2/final.R",
+    "project_path" : "final.R",
+    "properties" : {
+        "cursorPosition" : "7,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

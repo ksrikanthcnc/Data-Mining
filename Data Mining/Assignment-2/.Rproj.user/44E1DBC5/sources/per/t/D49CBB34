@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1509612898526.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3814033707",
+    "id" : "D49CBB34",
+    "lastKnownWriteTime" : 1509467090,
+    "last_content_update" : 1509467090,
+    "path" : "~/My files/Data Mining/R/Assignment-2/work/kmeanssse.R",
+    "project_path" : "work/kmeanssse.R",
+    "properties" : {
+        "cursorPosition" : "47,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,66 @@
+library(doMC)
+registerDoMC(cores=)
+
+rm(list = ls())
+library(readr)
+library(rpart)
+library(rpart.plot)
+library(caret)
+set.seed(1234)
+#---------------------------------------------------------------------
+data <- read_csv("data.csv")
+data[sapply(data, is.character)] <- lapply(data[sapply(data, is.character)], as.factor)
+#View(data)
+summary(data)
+head(data)
+#str(data)
+#--------------------------------------------------------------------
+#80:20 with sampling
+intrain <- createDataPartition(y = data$income, p = 0.8, list = FALSE)
+train <- data[intrain,]
+test <- data[-intrain,]
+
+#10-fold
+10fold <- trainControl(method="repeatedcv", number = 10,repeats = 1)
+#-----------------------------------------------------------------
+#models
+#info,gini
+#tree_ent <- rpart(income~., train_ratio, method = "class", minsplit = 2, minbucket = 1,
+#                  parms = list(split = "gini"))
+#rpart.plot(tree_ent)
+
+#entropy  
+ent_ratio <- train(income~., data = train, method = "rpart",
+                       parms = list(split = "information"),
+                       tuneLength = 10)
+prp(ent_ratio$finalModel, box.palette = "Reds")
+ent_10fold <- train(income~., data = data, method = "rpart",
+             parms = list(split = "information"),
+             trControl = 10fold,
+             tuneLength = 10)
+prp(ent_10fold$finalModel, box.palette = "Reds")
+predicted <- predict(ent_ratio, test, type = 'class')
+#confusion matrix,accuracy,recall,precision,f-score
+confusionMatrix(predicted, testing$income )
+conf <- table(predicted,test$income)
+conf
+acc <- sum(diag(conf))/sum(conf)
+acc
+rec <- conf[1,1]/sum(conf[1,])
+rec
+pre <- conf[1,1]/sum(conf[,1])
+pre
+f_s <- 2*conf[1,1]/(2*conf[1,1] + conf[1,2] + conf[2,1])
+f_s
+
+#gini
+gini <- train(income~., data = train, method = "rpart",
+                       parms = list(split = "gini"),
+                       tuneLength = 10)
+prp(gini$finalModel, box.palette = "Reds", tweak = 1.2)
+
+#Naive Bayes
+nb <- train(income~., data=train,  method="nb")
+
+#
+

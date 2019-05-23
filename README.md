@@ -1,6 +1,6 @@
 # Data Mining
 
-Data set used : https://www.kaggle.com/wenruliu/adult-income-dataset
+Data set used : https://www.kaggle.com/wenruliu/adult-income-dataset \
 Workspace: RStudio
 
 Training methods used
@@ -14,5 +14,5 @@ To do (half-done)
 - K-Means
 - NeuralNet
 
-Problem statement can be found in [Problem.pdf](Problem.pdf)
+Problem statement can be found in [Problem.pdf](Problem.pdf)\
 Overview of results can be viewed in [Solution.pdf](Solution.pdf)
